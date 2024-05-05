@@ -18,7 +18,7 @@ CREATE TABLE IF NOT EXISTS entidades.produto
 CREATE TABLE IF NOT EXISTS entidades.categoria
 (
     id uuid NOT NULL,
-    titulo character varying,
+    titulo character varying NOT NULL,
     PRIMARY KEY (id)
     );
 
