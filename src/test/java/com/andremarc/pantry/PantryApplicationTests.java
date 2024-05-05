@@ -1,10 +1,10 @@
-package com.andremarc.trelloclone;
+package com.andremarc.pantry;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class TrelloCloneApplicationTests {
+class PantryApplicationTests {
 
 	@Test
 	void contextLoads() {

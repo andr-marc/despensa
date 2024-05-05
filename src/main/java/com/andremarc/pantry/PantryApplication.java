@@ -1,13 +1,13 @@
-package com.andremarc.trelloclone;
+package com.andremarc.pantry;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class TrelloCloneApplication {
+public class PantryApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(TrelloCloneApplication.class, args);
+		SpringApplication.run(PantryApplication.class, args);
 	}
 
 }
