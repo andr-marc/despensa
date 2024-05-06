@@ -56,10 +56,10 @@ public class CategoryService {
                 Sort.by(pageable.getSort().stream().toList())
         );
 
-        Page<Category> video = repository.findAll(pageable);
-        final Pagination pagination = Pagination.from(video, pageable);
+        Page<Category> category = repository.findAll(pageable);
+        final Pagination pagination = Pagination.from(category, pageable);
 
-        return response.of(HttpStatus.OK, "Lista de categorias encontrado com sucesso!", new PaginatedData<>(video.getContent(), pagination));
+        return response.of(HttpStatus.OK, "Lista de categorias encontrado com sucesso!", new PaginatedData<>(category.getContent(), pagination));
     }
 
     public ApiResponse<?> delete(UUID id) {
@@ -73,5 +73,4 @@ public class CategoryService {
         );
         return response;
     }
-
 }

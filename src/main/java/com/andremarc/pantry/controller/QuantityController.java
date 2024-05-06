@@ -1,9 +1,10 @@
 package com.andremarc.pantry.controller;
 
 import com.andremarc.pantry.entity.Category;
+import com.andremarc.pantry.entity.Quantity;
 import com.andremarc.pantry.model.ApiResponse;
 import com.andremarc.pantry.model.PaginatedData;
-import com.andremarc.pantry.service.CategoryService;
+import com.andremarc.pantry.service.QuantityService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.web.PageableDefault;
@@ -14,33 +15,33 @@ import java.util.UUID;
 
 @RestController
 @RequiredArgsConstructor
-@RequestMapping("/category")
-public class CategoryController {
+@RequestMapping("/quantity")
+public class QuantityController {
 
-    private final CategoryService service;
+    private final QuantityService service;
 
     @PostMapping
-    public ResponseEntity<ApiResponse<Category>> save(@RequestBody Category category){
-        ApiResponse<Category> response = service.save(category);
+    public ResponseEntity<ApiResponse<Quantity>> save(@RequestBody Quantity quantity){
+        ApiResponse<Quantity> response = service.save(quantity);
         return ResponseEntity.status(response.getStatus()).body(response);
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<ApiResponse<Category>> save(@PathVariable UUID id){
-        ApiResponse<Category> response = service.getById(id);
+    public ResponseEntity<ApiResponse<Quantity>> save(@PathVariable UUID id){
+        ApiResponse<Quantity> response = service.getById(id);
         return ResponseEntity.status(response.getStatus()).body(response);
     }
 
     @GetMapping
-    public ResponseEntity<ApiResponse<PaginatedData<Category>>> getAll(@PageableDefault() Pageable pageable){
+    public ResponseEntity<ApiResponse<PaginatedData<Quantity>>> getAll(@PageableDefault() Pageable pageable){
 
-        ApiResponse<PaginatedData<Category>> response = service.getAll(pageable);
+        ApiResponse<PaginatedData<Quantity>> response = service.getAll(pageable);
         return ResponseEntity.status(response.getStatus()).body(response);
     }
 
     @PutMapping
-    public ResponseEntity<ApiResponse<Category>> update(@RequestBody Category category){
-        ApiResponse<Category> response = service.update(category);
+    public ResponseEntity<ApiResponse<Quantity>> update(@RequestBody Quantity quantity){
+        ApiResponse<Quantity> response = service.update(quantity);
         return ResponseEntity.status(response.getStatus()).body(response);
     }
 
@@ -49,4 +50,5 @@ public class CategoryController {
         ApiResponse<?> response = service.delete(id);
         return ResponseEntity.status(response.getStatus()).body(response);
     }
+
 }
