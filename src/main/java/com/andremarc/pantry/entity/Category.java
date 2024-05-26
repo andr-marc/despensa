@@ -12,8 +12,8 @@ import java.util.UUID;
 public class Category {
         @Id
         @UuidGenerator
-        UUID id;
+        private UUID id;
 
         @Column(name = "nome", nullable = false)
-        String name;
+        private String name;
 }

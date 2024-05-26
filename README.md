@@ -18,7 +18,7 @@ title: Pantry
 ---
 erDiagram
     PRODUCT ||--o{ CATEGORY : ""
-    PRODUCT ||--o{ QUANTITY : ""
+    PRODUCT ||--o{ UNITY : ""
     FLOW ||--o{ PRODUCT : ""
     FLOW ||--o{ USER : ""
     PRODUCT {
@@ -30,7 +30,7 @@ erDiagram
         string expirationDate
         string status
         CATEGORY category FK
-        QUANTITY quantity FK
+        UNITY unity FK
     }
 
     CATEGORY {
@@ -39,7 +39,7 @@ erDiagram
     }
 
 
-    QUANTITY {
+    UNITY {
         uuid id PK
         int unity 
         int subUnity "e.g.: 1 egg-carton (unity) has 10 eggs (subUnity)"

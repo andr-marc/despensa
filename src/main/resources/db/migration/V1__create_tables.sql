@@ -9,9 +9,8 @@ CREATE TABLE IF NOT EXISTS entidades.produto
     marca character varying NOT NULL,
     data_validade character varying NOT NULL,
     data_compra character varying NOT NULL,
-    status character varying NOT NULL,
-    categoria uuid NOT NULL,
-    quantidade uuid NOT NULL,
+    categoria_id uuid NOT NULL,
+    unidade_id uuid NOT NULL,
     PRIMARY KEY (id)
     );
 
@@ -22,11 +21,12 @@ CREATE TABLE IF NOT EXISTS entidades.categoria
     PRIMARY KEY (id)
     );
 
-CREATE TABLE IF NOT EXISTS entidades.quantidade
+CREATE TABLE IF NOT EXISTS entidades.unidade
 (
     id uuid NOT NULL,
     unidade integer NOT NULL,
     subunidade integer,
+    status character varying NOT NULL,
     PRIMARY KEY (id)
     );
 
@@ -49,8 +49,14 @@ CREATE TABLE IF NOT EXISTS entidades.usuario
     PRIMARY KEY (id)
     );
 
+CREATE TABLE IF NOT EXISTS entidades.permissao
+(
+    id uuid NOT NULL,
+    nome character varying NOT NULL
+    );
+
 ALTER TABLE IF EXISTS entidades.produto
-    ADD FOREIGN KEY (categoria)
+    ADD FOREIGN KEY (categoria_id)
     REFERENCES entidades.categoria (id) MATCH SIMPLE
     ON UPDATE NO ACTION
        ON DELETE NO ACTION
@@ -58,8 +64,8 @@ ALTER TABLE IF EXISTS entidades.produto
 
 
 ALTER TABLE IF EXISTS entidades.produto
-    ADD FOREIGN KEY (quantidade)
-    REFERENCES entidades.quantidade (id) MATCH SIMPLE
+    ADD FOREIGN KEY (unidade_id)
+    REFERENCES entidades.unidade (id) MATCH SIMPLE
     ON UPDATE NO ACTION
        ON DELETE NO ACTION
     NOT VALID;

@@ -23,14 +23,14 @@ public class CategoryService {
     public ApiResponse<Category> save(Category category) {
         ApiResponse<Category> response = new ApiResponse<>();
         Category saved = repository.save(category);
-        return response.of(HttpStatus.OK, "Categoria salva com sucesso!", saved);
+        return response.of(HttpStatus.CREATED, "Categoria salva com sucesso!", saved);
     }
 
     public ApiResponse<Category> update(Category category) {
         ApiResponse<Category> response = new ApiResponse<>();
 
         if(category.getId() == null)
-            return response.of(HttpStatus.BAD_REQUEST, "ID informado!");
+            return response.of(HttpStatus.BAD_REQUEST, "ID não informado!");
 
         if (!repository.existsById(category.getId()))
             return response.of(HttpStatus.NOT_FOUND, "Categoria não encontrada com o ID informado");

@@ -11,15 +11,18 @@ import java.util.UUID;
 
 @Data
 @Entity
-@Table(name = "quantidade")
-public class Quantity {
+@Table(name = "unidade")
+public class Unity {
     @Id
     @UuidGenerator
-    UUID id;
+    private UUID id;
 
     @Column(name = "unidade", nullable = false)
-    String unity;
+    private String unity;
 
     @Column(name = "subunidade")
-    String subUnity;
+    private String subUnity;
+
+    @Column
+    private String status;
 }
